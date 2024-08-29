@@ -60,10 +60,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-      		<groupId>org.flywaydb</groupId>
-      		<artifactId>flyway-core</artifactId>
-    	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
+<dependency>
+    <groupId>org.flywaydb</groupId>
+    <artifactId>flyway-core</artifactId>
+    <version>9.16.3</version>
+</dependency>
 
 	</dependencies>
 
