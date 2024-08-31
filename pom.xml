@@ -66,6 +66,13 @@
     <artifactId>flyway-core</artifactId>
     <version>9.16.3</version>
 </dependency>
+<dependencies>
+  <dependency>
+    <groupId>com.amazonaws</groupId>
+    <artifactId>aws-java-sdk</artifactId>
+    <version>1.11.1000</version>
+  </dependency>
+</dependencies>
 
 	</dependencies>
 
