@@ -1,21 +1,25 @@
 package com.eventostec.api.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import lombok.Value;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 
 @Configuration
 public class AwsConfig {
+
     @Value("${aws.region}")
-    private AwsRegion;
+    private String awsRegion;  
 
     @Bean
-    public AmazonS3 createS3Instance(){
-        return AmazonS3clientBuider.standart()
-                .withRegion(AwsRegion)
+    public AmazonS3 createS3Instance() {
+        return AmazonS3ClientBuilder.standard() 
+                .withRegion(awsRegion)
                 .build();
     }
-
-
 }
+
+
+
+

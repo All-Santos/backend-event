@@ -1,5 +1,7 @@
 package com.eventostec.api.service;
 
+import java.sql.Date;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
