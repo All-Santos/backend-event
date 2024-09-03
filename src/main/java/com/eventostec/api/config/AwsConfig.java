@@ -14,7 +14,8 @@ public class AwsConfig {
 
     @Bean
     public AmazonS3 createS3Instance() {
-        return AmazonS3ClientBuilder.standard() 
+        return AmazonS3ClientBuilder
+                .standard() 
                 .withRegion(awsRegion)
                 .build();
     }
