@@ -7,6 +7,9 @@ import java.sql.Date;
 import java.util.Objects;
 import java.util.UUID;
 
+
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -15,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.amazonaws.services.s3.AmazonS3;
 import com.eventostec.api.domain.event.Event;
 import com.eventostec.api.domain.event.EventRequestDto;
+import com.eventostec.api.repositories.EventRepository;
 
 @Service
 public class EventService {
@@ -24,6 +28,10 @@ public class EventService {
 
     @Autowired
     private AmazonS3 s3Client;
+
+    @Autowired 
+    private EventRepository repository;
+
     public Event createEvent(EventRequestDto data){
         String imageUrl = null;
 
@@ -38,6 +46,9 @@ public class EventService {
         newEvent.setEventURL(data.eventUrl());
         newEvent.setDate(new Date(data.date()));
         newEvent.setImageURL(imageUrl);
+        newEvent.setRemote(data.remote());
+
+        repository.save(newEvent);
 
         return newEvent;
 
